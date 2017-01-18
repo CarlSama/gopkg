@@ -2,8 +2,8 @@
 
 参数列表
 
-- s Value 原切片数据，类型是 reflect.Value
-- x ...Value 新切片数据，将此切片追加到s切片中，类型是 reflect.Value
+- s Value    切片数据，类型是 reflect.Value
+- x ...Value 切片数据，类型是 reflect.Value
 
 返回值：
 
@@ -31,9 +31,8 @@
 		}
 		
 		value = reflect.Append(value, reflect.ValueOf(1))
-		value = reflect.Append(value, reflect.ValueOf(2))
 		value = reflect.Append(value, reflect.ValueOf(3), reflect.ValueOf(4)) //支持可变参数
 		
 		fmt.Println(value.Kind(), value.Slice(0, value.Len()).Interface())
-		//>>slice [1 2 3 4]
+		//>>slice [1 3 4]
 	}
